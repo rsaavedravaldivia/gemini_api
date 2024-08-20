@@ -47,8 +47,8 @@ function get_curl_response($endpoint, $key, $description)
 $endpoint = 'https://www.napikano.com/api/rcallv1.php';
 $key = '';
 
-$country = 'Argentina';
-$city = 'Buenos Aires';
+$country = 'France';
+$city = 'Paris';
 $start = '8/20/2024';
 $end = '8/24/2024';
 $size = 'solo';
@@ -58,16 +58,15 @@ $currency = 'USD';
 $q = sprintf('Give me an itinerary of two tourist attractions per day in the country of %s, the city of %s, starting on %s and ending in %s. The attractions should be for people traveling %s, age range of %s. 
 
 
-Format the answer as JSON do not add inner quotation marks inside the values to avoid parsing errors, keep the quotation marks that are needed for the JSON format.
-
+Format the answer as JSON ensure that any quotation marks within the atraction or description fields are properly escaped. Do not add any other text and check that the response is a list of JSON separated by commas and do not add square brackets. The answer should look like this:
 {"day": "1", 
 "time": "Morning or Afternoon", 
-"date": "XX-XX-XXXX", 
+"date": "00-00-0000", 
 "attraction": "Attraction Name",
 "description": "Attraction Description",
 "duration": "Attraction Duration",
 "price": "Attraction Price in %s"
-} do not add any other text.', $country, $city, $start, $end, $size, $age, $currency);
+}', $country, $city, $start, $end, $size, $age, $currency);
 // add variable to change currency
 // 
 
